@@ -12,12 +12,12 @@ export function ConfirmationPanel({ whatsappUrl }: ConfirmationPanelProps) {
       <div className="mb-12 flex h-24 w-24 items-center justify-center rounded-full border border-border">
         <CheckCircle2 className="h-9 w-9 text-primary" />
       </div>
-      <h1 className="font-display text-6xl font-semibold">Thank you.</h1>
+      <h1 className="font-display text-6xl font-semibold">Merci.</h1>
       <p className="mt-8 font-display text-3xl text-muted-foreground">
-        Your inspiration board has been prepared.
+        Votre moodboard a été préparé.
       </p>
       <LuxuryButton href={whatsappUrl} className="mt-16">
-        Continue to WhatsApp
+        Continuer sur WhatsApp
       </LuxuryButton>
     </section>
   );

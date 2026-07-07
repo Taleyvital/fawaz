@@ -1,5 +1,5 @@
 export const brand = {
   name: "Reda Fawaz",
-  tagline: "Artistry in events",
+  tagline: "L'art de l'événementiel",
   whatsappNumber: "",
 } as const;

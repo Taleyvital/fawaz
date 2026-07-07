@@ -1,7 +1,7 @@
 export const eventTypeOptions = [
-  { value: "wedding", label: "Luxury Wedding" },
-  { value: "corporate", label: "Corporate Gala" },
-  { value: "private", label: "Private Celebration" },
+  { value: "wedding", label: "Mariage de luxe" },
+  { value: "corporate", label: "Gala d'entreprise" },
+  { value: "private", label: "Célébration privée" },
 ] as const;
 
 export const budgetOptions = [

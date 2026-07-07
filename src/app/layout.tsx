@@ -10,13 +10,13 @@ export const metadata: Metadata = {
     template: "%s | Reda Fawaz",
   },
   description:
-    "Luxury event artistry, fashion direction, floral design, and bespoke experiences by Reda Fawaz.",
+    "Art événementiel de luxe, direction de mode, design floral et expériences sur mesure par Reda Fawaz.",
   openGraph: {
     title: "Reda Fawaz",
     description:
-      "Luxury event artistry, fashion direction, floral design, and bespoke experiences by Reda Fawaz.",
+      "Art événementiel de luxe, direction de mode, design floral et expériences sur mesure par Reda Fawaz.",
     siteName: "Reda Fawaz",
-    locale: "en_US",
+    locale: "fr_FR",
     type: "website",
   },
 };
@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="fr" suppressHydrationWarning>
       <body className="min-h-screen">
         <SiteHeader />
         <main>{children}</main>

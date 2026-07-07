@@ -15,7 +15,7 @@ export function InspirationDrawer({
       data-open={open}
     >
       <button type="button" onClick={() => onOpenChange(false)}>
-        Close
+        Fermer
       </button>
     </aside>
   );

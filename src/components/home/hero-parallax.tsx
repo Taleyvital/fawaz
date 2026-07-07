@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const layers = {
-  ballroom: "/images/hero/ballroom.png",
+  ballroom: "/images/hero/ballroom.jpg",
   florals: "/images/hero/florals.png",
   tablescape: "/images/hero/tablescape.png",
 };
@@ -44,32 +44,6 @@ export function HeroParallax() {
         priority
         sizes="100vw"
         className="absolute inset-0 z-0 h-full w-full object-cover opacity-95"
-        style={{
-          transform: `translateY(${scrollY * 0.15}px) scale(${1.02 + scrollY * 0.0001})`,
-        }}
-      />
-
-      <Image
-        src={layers.tablescape}
-        alt="Refined tablescape detail with crystal glassware"
-        fill
-        sizes="100vw"
-        className="mask-bottom absolute inset-0 z-10 h-full w-full object-cover opacity-35 mix-blend-overlay"
-        style={{
-          transform: `translateY(${scrollY * 0.25}px) scale(1.06)`,
-        }}
-      />
-
-      <Image
-        src={layers.florals}
-        alt="White orchids and roses layered as foreground florals"
-        fill
-        sizes="100vw"
-        className="pointer-events-none absolute inset-0 z-20 h-full w-full scale-110 object-cover opacity-50 mix-blend-screen"
-        style={{
-          objectPosition: "center",
-          transform: `translateY(${scrollY * 0.4}px) scale(1.12)`,
-        }}
       />
 
       <div
@@ -85,55 +59,55 @@ export function HeroParallax() {
         }}
       >
         <h1
-          className="fade-in-up max-w-6xl font-display text-[54px] font-semibold leading-[0.95] md:text-[116px]"
+          className="fade-in-up max-w-6xl font-display text-[32px] font-semibold leading-[0.95] sm:text-[42px] md:text-[54px] lg:text-[80px] xl:text-[116px]"
           style={{
             animationDelay: "300ms",
             textShadow: "0 4px 14px rgb(0 0 0 / 12%)",
           }}
         >
-          Creating Extraordinary
+          Créer des Moments
           <br />
-          Moments
+          Extraordinaires
         </h1>
 
         <p
-          className="fade-in-up mt-12 max-w-4xl border-b border-[#fdf9f4]/35 pb-5 font-sans text-[13px] font-medium uppercase leading-6 tracking-[0.28em] md:text-[15px]"
+          className="fade-in-up mt-8 max-w-4xl border-b border-[#fdf9f4]/35 pb-4 font-sans text-[10px] font-medium uppercase leading-5 tracking-[0.2em] sm:mt-10 sm:text-[11px] sm:tracking-[0.24em] md:mt-12 md:text-[13px] md:leading-6 md:tracking-[0.28em] md:pb-5"
           style={{ animationDelay: "900ms" }}
         >
-          Wedding Designer <span className="mx-3">•</span> Event Stylist{" "}
-          <span className="mx-3">•</span> Floral Designer{" "}
-          <span className="mx-3">•</span> Fashion Creator
+          Designer de Mariage <span className="mx-2 sm:mx-3">•</span> Styliste Événementiel{" "}
+          <span className="mx-2 sm:mx-3">•</span> Designer Floral{" "}
+          <span className="mx-2 sm:mx-3">•</span> Créateur de Mode
         </p>
 
-        <div className="mt-16" style={{ transform: `scale(${ctaScale})` }}>
+        <div className="mt-12 sm:mt-14 md:mt-16" style={{ transform: `scale(${ctaScale})` }}>
           <div
-            className="fade-in-up flex flex-col gap-5 sm:flex-row"
+            className="fade-in-up flex flex-col gap-4 sm:gap-5"
             style={{ animationDelay: "1200ms" }}
           >
           <Link
             href="/portfolio"
-            className="inline-flex min-h-16 min-w-[325px] items-center justify-center border border-[#fdf9f4] bg-[#fdf9f4] px-10 font-sans text-sm uppercase tracking-[0.2em] text-foreground transition-colors duration-500 hover:bg-transparent hover:text-[#fdf9f4]"
+            className="inline-flex h-14 min-h-14 w-full min-w-full items-center justify-center border border-[#fdf9f4] bg-[#fdf9f4] px-8 font-sans text-xs uppercase tracking-[0.18em] text-foreground transition-colors duration-500 hover:bg-transparent hover:text-[#fdf9f4] sm:h-16 sm:min-h-16 sm:w-auto sm:min-w-[325px] sm:px-10 sm:text-sm sm:tracking-[0.2em]"
           >
-            Explore Creations
+            Explorer les Créations
           </Link>
           <Link
             href="/portfolio"
-            className="inline-flex min-h-16 min-w-[395px] items-center justify-center border border-[#d4af37] px-10 font-sans text-sm uppercase tracking-[0.2em] text-[#d4af37] transition-colors duration-500 hover:bg-[#d4af37] hover:text-foreground"
+            className="inline-flex h-14 min-h-14 w-full min-w-full items-center justify-center border border-[#d4af37] px-8 font-sans text-xs uppercase tracking-[0.18em] text-[#d4af37] transition-colors duration-500 hover:bg-[#d4af37] hover:text-foreground sm:h-16 sm:min-h-16 sm:w-auto sm:min-w-[395px] sm:px-10 sm:text-sm sm:tracking-[0.2em]"
           >
-            Start Inspiration Board
+            Commencer le Moodboard
           </Link>
           </div>
         </div>
       </div>
 
       <div
-        className="fade-in absolute bottom-10 left-1/2 z-40 flex -translate-x-1/2 flex-col items-center text-[#fdf9f4]/75"
+        className="fade-in absolute bottom-6 left-1/2 z-40 flex -translate-x-1/2 flex-col items-center text-[#fdf9f4]/75 sm:bottom-8 md:bottom-10"
         style={{ animationDelay: "1500ms", transform: `translateX(-50%) scale(${ctaScale})` }}
       >
-        <span className="mb-2 font-sans text-[10px] uppercase tracking-[0.26em]">
-          Scroll
+        <span className="mb-2 font-sans text-[9px] uppercase tracking-[0.2em] sm:text-[10px] sm:tracking-[0.26em]">
+          Défiler
         </span>
-        <ChevronDown className="scroll-indicator h-7 w-7 stroke-1 text-[#fdf9f4]" />
+        <ChevronDown className="scroll-indicator h-6 w-6 stroke-1 text-[#fdf9f4] sm:h-7 sm:w-7" />
       </div>
     </section>
   );

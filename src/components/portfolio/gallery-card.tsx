@@ -24,7 +24,7 @@ export function GalleryCard({ item, isSaved = false, onToggleSave }: GalleryCard
         onClick={() => onToggleSave?.(item.id)}
         className="absolute right-6 top-6 opacity-0 transition-opacity group-hover:opacity-100"
       >
-        Save
+        Sauvegarder
       </button>
     </article>
   );

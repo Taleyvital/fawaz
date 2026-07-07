@@ -12,12 +12,12 @@ export function createWhatsAppUrl({
   inspirationTitles = [],
 }: WhatsAppMessageInput) {
   const lines = [
-    "Hello Reda Fawaz team, I would like to prepare a bespoke consultation.",
-    name ? `Name: ${name}` : null,
-    eventType ? `Event type: ${eventType}` : null,
-    date ? `Event date: ${date}` : null,
+    "Bonjour équipe Reda Fawaz, je souhaiterais préparer une consultation sur mesure.",
+    name ? `Nom : ${name}` : null,
+    eventType ? `Type d'événement : ${eventType}` : null,
+    date ? `Date de l'événement : ${date}` : null,
     inspirationTitles.length
-      ? `Inspiration: ${inspirationTitles.join(", ")}`
+      ? `Inspiration : ${inspirationTitles.join(", ")}`
       : null,
   ].filter(Boolean);
 

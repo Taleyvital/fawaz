@@ -12,13 +12,13 @@ export function GalleryFilterBar({
   onChange,
 }: GalleryFilterBarProps) {
   return (
-    <div className="flex flex-wrap justify-center gap-4">
+    <div className="flex flex-wrap justify-center gap-3 px-4 sm:gap-4">
       {portfolioCategories.map((category) => (
         <button
           key={category}
           type="button"
           onClick={() => onChange(category)}
-          className="border-b border-transparent pb-1 text-xs uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:text-foreground data-[active=true]:border-foreground data-[active=true]:text-foreground"
+          className="border-b border-transparent pb-1 text-[10px] uppercase tracking-[0.15em] text-muted-foreground transition-colors hover:text-foreground data-[active=true]:border-foreground data-[active=true]:text-foreground sm:text-xs sm:tracking-[0.2em]"
           data-active={activeCategory === category}
         >
           {category}

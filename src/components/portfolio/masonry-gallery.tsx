@@ -15,19 +15,19 @@ type MasonryGalleryProps = {
 
 export function MasonryGallery({ items }: MasonryGalleryProps) {
   const [activeCategory, setActiveCategory] =
-    useState<(typeof portfolioCategories)[number]>("All");
+    useState<(typeof portfolioCategories)[number]>("Tous");
 
   const visibleItems = useMemo(() => {
-    if (activeCategory === "All") return items;
+    if (activeCategory === "Tous") return items;
     return items.filter((item) => item.category === activeCategory);
   }, [activeCategory, items]);
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-8 px-4 sm:space-y-10 sm:px-6 md:px-12">
       <GalleryFilterBar activeCategory={activeCategory} onChange={setActiveCategory} />
-      <div className="columns-1 gap-6 md:columns-2 lg:columns-3">
+      <div className="columns-1 gap-4 sm:gap-6 md:columns-2 lg:columns-3">
         {visibleItems.map((item) => (
-          <div key={item.id} className="mb-6">
+          <div key={item.id} className="mb-4 sm:mb-6">
             <GalleryCard item={item} />
           </div>
         ))}
