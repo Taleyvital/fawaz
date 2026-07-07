@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Portfolio Gallery - REDA FAWAZ</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&amp;family=Montserrat:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#c4c7c8",
+                        "secondary-fixed": "#e5e2e1",
+                        "primary-fixed-dim": "#c6c6c7",
+                        "on-surface-variant": "#444748",
+                        "background": "#fdf9f4",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-secondary-container": "#656464",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "error": "#ba1a1a",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "inverse-on-surface": "#f4f0eb",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#454747",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-bright": "#fdf9f4",
+                        "surface-container": "#f1ede8",
+                        "tertiary-container": "#ffffff",
+                        "surface-variant": "#e6e2dd",
+                        "primary": "#5d5f5f",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#31302d",
+                        "primary-container": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#e2e2e2",
+                        "secondary-container": "#e5e2e1",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-secondary": "#ffffff",
+                        "outline": "#747878",
+                        "surface-container-highest": "#e6e2dd",
+                        "tertiary": "#5d5f5f",
+                        "inverse-primary": "#c6c6c7",
+                        "on-primary-container": "#747676",
+                        "surface-dim": "#ddd9d5",
+                        "surface-container-high": "#ebe8e3",
+                        "surface": "#fdf9f4",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#474646",
+                        "on-background": "#1c1c19",
+                        "secondary": "#5f5e5e",
+                        "surface-container-low": "#f7f3ee",
+                        "surface-tint": "#5d5f5f",
+                        "on-tertiary-container": "#747676",
+                        "on-surface": "#1c1c19",
+                        "on-primary-fixed": "#1a1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-xl": "160px",
+                        "margin-mobile": "24px",
+                        "stack-md": "40px",
+                        "stack-lg": "80px",
+                        "gutter": "24px",
+                        "margin-desktop": "80px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Bodoni Moda"],
+                        "display-lg": ["Bodoni Moda"],
+                        "button-text": ["Montserrat"],
+                        "headline-lg": ["Bodoni Moda"],
+                        "body-md": ["Montserrat"],
+                        "display-lg-mobile": ["Bodoni Moda"],
+                        "body-lg": ["Montserrat"],
+                        "label-caps": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["32px", { "lineHeight": "40px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "display-lg": ["84px", { "lineHeight": "92px", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "button-text": ["14px", { "lineHeight": "20px", "letterSpacing": "0.15em", "fontWeight": "400" }],
+                        "headline-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "0em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "28px", "letterSpacing": "0.03em", "fontWeight": "300" }],
+                        "display-lg-mobile": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "32px", "letterSpacing": "0.05em", "fontWeight": "300" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.2em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .masonry-grid {
+            column-count: 1;
+            column-gap: 24px;
+        }
+        @media (min-width: 768px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+        @media (min-width: 1024px) {
+            .masonry-grid {
+                column-count: 3;
+            }
+        }
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 24px;
+        }
+        .group:hover .group-hover\:opacity-100 {
+            opacity: 1;
+        }
+        .glass-panel {
+            background: rgba(253, 249, 244, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen antialiased flex flex-col">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md dark:bg-transparent border-b border-outline-variant/30 transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center px-margin-desktop py-6 w-full max-w-[1440px] mx-auto">
+<div class="font-display-lg text-headline-md tracking-tighter text-on-background dark:text-surface-bright">REDA FAWAZ</div>
+<div class="hidden md:flex space-x-8 font-button-text text-button-text uppercase">
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">About</a>
+<a class="text-primary border-b border-primary pb-1" href="#">Portfolio</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Expertise</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Gallery</a>
+</div>
+<div class="hidden md:block">
+<button class="font-button-text text-button-text uppercase border border-on-background px-6 py-2 hover:bg-on-background hover:text-background transition-colors duration-300">Inspiration</button>
+</div>
+<button class="md:hidden text-on-background">
+<span class="material-symbols-outlined" data-icon="menu">menu</span>
+</button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow pt-[120px] pb-stack-xl max-w-[1440px] mx-auto w-full px-margin-mobile md:px-margin-desktop">
+<!-- Header & Filters -->
+<header class="mb-stack-md flex flex-col items-center text-center space-y-6">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg">Curated Works</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">A selection of high-end event artistry, fashion, and floral design.</p>
+<div class="flex flex-wrap justify-center gap-4 mt-8">
+<button class="font-label-caps text-label-caps uppercase border-b border-on-background pb-1">All</button>
+<button class="font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-background transition-colors">Wedding</button>
+<button class="font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-background transition-colors">Decoration</button>
+<button class="font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-background transition-colors">Flowers</button>
+<button class="font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-background transition-colors">Fashion</button>
+<button class="font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-background transition-colors">Perfume</button>
+<button class="font-label-caps text-label-caps uppercase text-on-surface-variant hover:text-on-background transition-colors">Luxury Events</button>
+</div>
+</header>
+<!-- Masonry Gallery -->
+<div class="masonry-grid">
+<!-- Item 1 (Image 4) -->
+<div class="masonry-item group relative overflow-hidden bg-surface-container-low cursor-pointer">
+<img alt="Grand floral installation" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5k5Ujt6k66Dv3-9c7gCHC3YbUb_9xvB33NF5qwtrH-EcPLmqm3SCoAQi0eGy2-GxbcTiOFfFFfDr9rf3e0l6MjrkwujDgphY6omcQutMZGBxa0iq7F21aE5DGXb-y4xRNNwxcwPqBGw5HnH06lfmMtQtJhrS5vRbiBGuAppzfedrIPvUFa6ockUl_-ixzhhjoSl3C2un0yZskgxjBgMDLUUa4TMkwJ68HUd78pENcgiHjwyh3Y1Rg"/>
+<div class="absolute inset-0 border border-transparent group-hover:border-[#D4AF37]/30 transition-colors duration-500 m-4 pointer-events-none"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+<span class="font-label-caps text-label-caps text-surface-bright uppercase mb-2">Luxury Events</span>
+<h3 class="font-headline-md text-headline-md text-surface-bright">The Palatial Reception</h3>
+<button class="absolute top-6 right-6 text-surface-bright hover:text-[#D4AF37] transition-colors z-10 flex items-center justify-center bg-black/20 rounded-full p-2 backdrop-blur-sm">
+<span class="material-symbols-outlined" data-icon="favorite_border">favorite_border</span>
+</button>
+</div>
+</div>
+<!-- Item 2 (Image 3) -->
+<div class="masonry-item group relative overflow-hidden bg-surface-container-low cursor-pointer">
+<img alt="Luxury perfume bottle" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiyQupTylzT3oRJ2g4KtnSkMIzP5Z5VS9cE_wgvjFugXtg7lJUvqPLBpx510jlPeBkd1W0tbmdV4tr4OPzlkHKYi2EI3GmDxpbf5oNPsBn0FZ89EFkfpiys1a_oDuRoWTL_7mQbChCxwqtaMAt99ug8A4Ysu8hiMdNT1yDCaL27HfuusibueHcn-NKZdnOnwfCzSoMGCaO9I3Zxqda6U0CA1uFxFEG3UNUGQIFkxhS4lx9JjmDl0nk"/>
+<div class="absolute inset-0 border border-transparent group-hover:border-[#D4AF37]/30 transition-colors duration-500 m-4 pointer-events-none"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+<span class="font-label-caps text-label-caps text-surface-bright uppercase mb-2">Perfume</span>
+<h3 class="font-headline-md text-headline-md text-surface-bright">Signature Essence</h3>
+<button class="absolute top-6 right-6 text-surface-bright hover:text-[#D4AF37] transition-colors z-10 flex items-center justify-center bg-black/20 rounded-full p-2 backdrop-blur-sm">
+<span class="material-symbols-outlined" data-icon="favorite_border">favorite_border</span>
+</button>
+</div>
+</div>
+<!-- Item 3 (Image 5) -->
+<div class="masonry-item group relative overflow-hidden bg-surface-container-low cursor-pointer">
+<img alt="Luxury floral arrangement detail" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGiC0lpF0sMSCSK4-ABdnOk_O6me1_C3KzKtyZxTxVfFNJSoGgMP6_nTiONfIfLeSq2fJCHuxBBaDFshyE8gQpSANjuJNW5kiwP55lSMiJR8Uz8cjonwrMMePWKUB67h7FA6NRw93_eGs2nL2YoFj1tTCneQQX6RQL81qOf-PaeIWUO_MP0XHLgPXC0fC0ipV8HgiYzan0t26XfKJbgEX9KSqv0Hrq2kAdK4Esy2e3_SSAq7ebCMqZ"/>
+<div class="absolute inset-0 border border-transparent group-hover:border-[#D4AF37]/30 transition-colors duration-500 m-4 pointer-events-none"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+<span class="font-label-caps text-label-caps text-surface-bright uppercase mb-2">Flowers</span>
+<h3 class="font-headline-md text-headline-md text-surface-bright">Ethereal Orchids</h3>
+<button class="absolute top-6 right-6 text-surface-bright hover:text-[#D4AF37] transition-colors z-10 flex items-center justify-center bg-black/20 rounded-full p-2 backdrop-blur-sm">
+<span class="material-symbols-outlined" data-icon="favorite_border">favorite_border</span>
+</button>
+</div>
+</div>
+<!-- Placeholders for visual balance -->
+<div class="masonry-item group relative overflow-hidden bg-surface-container-low cursor-pointer aspect-[3/4]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A striking minimalist editorial fashion shot of a model wearing a structural avant-garde gown designed by Reda Fawaz. The background is a clean, bright white studio setting with stark shadows emphasizing the architectural shapes of the garment. The lighting is harsh yet glamorous, typical of high-end magazine spreads. The mood is confident, modern, and intensely focused on form." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdPzHXMoASuXijo14L-c0Q43C0R-PwU3qfv6ZVofoJwcOgcZ4kin4q6ps3JOI8QoBPbGwcP1hnt1WsSEtPkgtZycYONSupgPwj97t-aFEQNV7dT2BqSxdqTjOO9VdS-TpwdNAPAG_6vtXC97XKxN-zxMZux-sxc2grju6kaBIPMNKS0qBzbYzW09jk4NWzEoqvyLWofeo4aLH7S_BX4vu5UmqiEuvBF5ruvP6vkVxHfZ-gjkMhQQVS"/>
+<div class="absolute inset-0 border border-transparent group-hover:border-[#D4AF37]/30 transition-colors duration-500 m-4 pointer-events-none"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+<span class="font-label-caps text-label-caps text-surface-bright uppercase mb-2">Fashion</span>
+<h3 class="font-headline-md text-headline-md text-surface-bright">Avant-Garde Silhouette</h3>
+<button class="absolute top-6 right-6 text-surface-bright hover:text-[#D4AF37] transition-colors z-10 flex items-center justify-center bg-black/20 rounded-full p-2 backdrop-blur-sm">
+<span class="material-symbols-outlined" data-icon="favorite_border">favorite_border</span>
+</button>
+</div>
+</div>
+<div class="masonry-item group relative overflow-hidden bg-surface-container-low cursor-pointer aspect-square">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close-up detailed macro photography of a lavish table setting at a luxury event. Crystal glassware catches the soft, warm ambient light, casting delicate refractions onto a crisp white linen tablecloth. Delicate gold-rimmed plates and minimalist silver cutlery sit perfectly aligned. The scene conveys ultimate refinement, exclusivity, and impeccable attention to detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMUnUt0nluxnCEQHthrcH1laupEFhB0xMldqdqSoXfEj__9QLZ6kkhD7CjYyDjomhidCnRRa9n-l7ZMN6ru1Izd9_UadM4I4_QshS-bcOxjQrPSct_fCpkO3EHBtGej5wQwXBnhUnTobvGmBjnYg8gMSfzCLk6n_DNY-J8qEwiNgEndwm55I8G6jyfLyFxPjaqiXmWqx_iIwV8wJ8aPNIeCr4IxcAMMJbqNJEL9axV4zojsapC3Sxa"/>
+<div class="absolute inset-0 border border-transparent group-hover:border-[#D4AF37]/30 transition-colors duration-500 m-4 pointer-events-none"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+<span class="font-label-caps text-label-caps text-surface-bright uppercase mb-2">Decoration</span>
+<h3 class="font-headline-md text-headline-md text-surface-bright">Crystal Refractions</h3>
+<button class="absolute top-6 right-6 text-surface-bright hover:text-[#D4AF37] transition-colors z-10 flex items-center justify-center bg-black/20 rounded-full p-2 backdrop-blur-sm">
+<span class="material-symbols-outlined" data-icon="favorite_border">favorite_border</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- SideNavBar (Inspiration Board) - Hidden by default, toggled via JS in a real app -->
+<aside class="fixed right-0 top-0 h-full w-96 z-[60] bg-surface/80 backdrop-blur-xl dark:bg-inverse-surface/80 border-l border-outline-variant/20 shadow-xl translate-x-0 transition-transform duration-500 ease-in-out flex flex-col p-8 gap-stack-md glass-panel" style="transform: translateX(100%);">
+<!-- Close button placeholder -->
+<button class="absolute top-6 right-6 text-on-background hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+<div class="flex flex-col items-start gap-4">
+<div class="w-12 h-12 bg-surface-container-highest rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome_motion">auto_awesome_motion</span>
+</div>
+<div>
+<h2 class="font-display-lg text-headline-lg text-on-background">Inspiration Board</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Your curated collection</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-8 flex-grow">
+<a class="flex items-center gap-4 p-4 text-primary font-bold bg-secondary-container rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome_motion">auto_awesome_motion</span>
+<span class="font-button-text text-button-text uppercase">Saved Concepts</span>
+</a>
+<a class="flex items-center gap-4 p-4 text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="palette">palette</span>
+<span class="font-button-text text-button-text uppercase">Moodboard</span>
+</a>
+<a class="flex items-center gap-4 p-4 text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="style">style</span>
+<span class="font-button-text text-button-text uppercase">Palettes</span>
+</a>
+<a class="flex items-center gap-4 p-4 text-on-surface-variant hover:bg-surface-container-high hover:bg-surface-container-highest transition-colors rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="font-button-text text-button-text uppercase">Consultation</span>
+</a>
+</nav>
+<div class="mt-auto">
+<button class="w-full font-button-text text-button-text uppercase border border-[#D4AF37] text-[#D4AF37] px-6 py-4 hover:bg-[#D4AF37] hover:text-white transition-all duration-300">Book Consultation</button>
+</div>
+</aside>
+<!-- Footer -->
+<footer class="relative w-full mt-stack-xl border-t border-outline-variant bg-surface-container-lowest dark:bg-inverse-surface flex flex-col items-center py-stack-lg px-margin-desktop space-y-gutter">
+<div class="font-display-lg text-headline-lg text-on-background">REDA FAWAZ</div>
+<div class="flex gap-8 font-body-md text-body-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors duration-300" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors duration-300" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors duration-300" href="#">Press Kit</a>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest mt-8">© 2024 REDA FAWAZ. ARTISTRY IN EVENTS.</p>
+</footer>
+<script>
+        // Simple script to toggle inspiration board for demonstration
+        document.addEventListener('DOMContentLoaded', () => {
+            const inspBtn = document.querySelector('nav button');
+            const aside = document.querySelector('aside');
+            const closeBtn = aside.querySelector('button');
+
+            if(inspBtn && aside) {
+                inspBtn.addEventListener('click', () => {
+                    aside.style.transform = 'translateX(0)';
+                });
+            }
+            if(closeBtn && aside) {
+                 closeBtn.addEventListener('click', () => {
+                    aside.style.transform = 'translateX(100%)';
+                });
+            }
+        });
+    </script>
+</body></html>
