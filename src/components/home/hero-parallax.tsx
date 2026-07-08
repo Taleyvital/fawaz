@@ -43,7 +43,7 @@ export function HeroParallax() {
         fill
         priority
         sizes="100vw"
-        className="absolute inset-0 z-0 h-full w-full object-cover opacity-95"
+        className="absolute inset-0 z-0 h-full w-full object-cover object-[26%_center] opacity-95 sm:object-[36%_center] md:object-center"
       />
 
       <div
