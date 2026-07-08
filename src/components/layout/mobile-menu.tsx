@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 import { LuxuryButton } from "@/components/brand/luxury-button";
 import { Button } from "@/components/ui/button";
@@ -11,7 +12,13 @@ import { mainNavigation } from "@/data/navigation";
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+
+  // Le portail n'est disponible qu'après le montage côté client.
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Referme le menu à chaque changement de page.
   useEffect(() => {
@@ -49,13 +56,14 @@ export function MobileMenu() {
         <Menu className="h-5 w-5" />
       </Button>
 
-      {open ? (
-        <div
-          id="mobile-menu"
-          role="dialog"
-          aria-modal="true"
-          className="fixed inset-0 z-[60] flex flex-col bg-background md:hidden"
-        >
+      {open && mounted
+        ? createPortal(
+            <div
+              id="mobile-menu"
+              role="dialog"
+              aria-modal="true"
+              className="fixed inset-0 z-[60] flex flex-col bg-background md:hidden"
+            >
           <div className="flex h-20 min-h-[80px] items-center justify-end px-4 sm:px-6">
             <Button
               aria-label="Fermer le menu"
@@ -100,8 +108,10 @@ export function MobileMenu() {
               Inspiration
             </LuxuryButton>
           </nav>
-        </div>
-      ) : null}
+            </div>,
+            document.body,
+          )
+        : null}
     </>
   );
 }
