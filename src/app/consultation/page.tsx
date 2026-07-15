@@ -19,7 +19,13 @@ export default function ConsultationPage() {
           <div>
             <ConsultationForm />
             <div className="mt-8 text-center">
-              <LuxuryButton href="/">Envoyer la demande</LuxuryButton>
+            <LuxuryButton
+              href="https://wa.me/2250712345678?text=Bonjour%20Reda%20Fawaz,%20je%20souhaite%20obtenir%20des%20informations."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Envoyer la demande
+            </LuxuryButton>
             </div>
           </div>
           {defaultInspirationItems.length > 0 && (
