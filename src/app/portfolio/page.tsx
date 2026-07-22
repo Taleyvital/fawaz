@@ -1,8 +1,12 @@
 import { EditorialHeading } from "@/components/brand/editorial-heading";
 import { PortfolioShowcase } from "@/components/portfolio/portfolio-showcase";
-import { portfolioItems } from "@/data/portfolio-items";
+import { getPortfolioItems } from "@/lib/portfolio-store";
 
-export default function PortfolioPage() {
+export const dynamic = "force-dynamic";
+
+export default async function PortfolioPage() {
+  const portfolioItems = await getPortfolioItems();
+
   return (
     <main className="min-h-screen bg-background pt-[110px]">
       <section className="mx-auto max-w-[1440px] px-4 py-12 sm:px-6 sm:py-16 md:px-12 md:py-24">
