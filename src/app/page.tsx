@@ -3,14 +3,19 @@ import { ExpertiseGrid } from "@/components/home/expertise-grid";
 import { FeaturedWork } from "@/components/home/featured-work";
 import { HeroParallax } from "@/components/home/hero-parallax";
 import { SignatureStatement } from "@/components/home/signature-statement";
+import { getPortfolioItems } from "@/lib/portfolio-store";
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
+  const portfolioItems = await getPortfolioItems();
+
   return (
     <>
       <HeroParallax />
       <SignatureStatement />
       <ExpertiseGrid />
-      <FeaturedWork />
+      <FeaturedWork items={portfolioItems} />
       <ClosingInvitation />
     </>
   );

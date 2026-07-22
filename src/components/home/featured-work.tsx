@@ -4,15 +4,20 @@ import Link from "next/link";
 import { EditorialHeading } from "@/components/brand/editorial-heading";
 import { LuxuryButton } from "@/components/brand/luxury-button";
 import { Reveal } from "@/components/brand/reveal";
-import { portfolioItems } from "@/data/portfolio-items";
+import type { PortfolioItem } from "@/data/portfolio-items";
 
-const featuredIds = ["wedding-1", "flowers-1", "event-1", "haute-couture-gown"];
+type FeaturedWorkProps = {
+  items: PortfolioItem[];
+};
 
-const featured = featuredIds
-  .map((id) => portfolioItems.find((item) => item.id === id))
-  .filter((item): item is (typeof portfolioItems)[number] => Boolean(item));
+export function FeaturedWork({ items }: FeaturedWorkProps) {
+  // Met en avant les dernières pièces ajoutées au catalogue (via l'admin).
+  const featured = items.slice(-4).reverse();
 
-export function FeaturedWork() {
+  if (featured.length === 0) {
+    return null;
+  }
+
   return (
     <section className="bg-background">
       <div className="mx-auto max-w-[1440px] px-4 py-20 sm:px-6 sm:py-28 md:px-20 md:py-36">
