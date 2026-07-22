@@ -18,12 +18,15 @@ export default function AdminPage() {
   const [items, setItems] = useState<PortfolioItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
+  const [deleting, setDeleting] = useState(false);
 
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState<PortfolioCategory>("Mariage");
   const [description, setDescription] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
+
+  const [itemToDelete, setItemToDelete] = useState<PortfolioItem | null>(null);
 
   useEffect(() => {
     loadItems();
@@ -70,9 +73,12 @@ export default function AdminPage() {
     loadItems();
   }
 
-  async function handleDelete(id: string) {
-    if (!confirm("Retirer cette pièce du catalogue ?")) return;
-    await fetch(`/api/admin/portfolio/${id}`, { method: "DELETE" });
+  async function confirmDelete() {
+    if (!itemToDelete) return;
+    setDeleting(true);
+    await fetch(`/api/admin/portfolio/${itemToDelete.id}`, { method: "DELETE" });
+    setDeleting(false);
+    setItemToDelete(null);
     loadItems();
   }
 
@@ -107,7 +113,7 @@ export default function AdminPage() {
           </button>
         </header>
 
-        {/* Formulaire d'ajout — mise en scène "fiche de pièce" */}
+        {/* Formulaire d'ajout */}
         <section className="mt-14">
           <div className="flex items-baseline gap-3">
             <span className="font-display text-2xl font-light text-accent">01</span>
@@ -118,7 +124,6 @@ export default function AdminPage() {
             onSubmit={handleAdd}
             className="mt-6 grid gap-8 border border-border bg-card p-6 sm:p-10 md:grid-cols-[220px_1fr] md:gap-10"
           >
-            {/* Zone visuelle */}
             <div>
               <label
                 htmlFor="photo-input"
@@ -141,7 +146,6 @@ export default function AdminPage() {
               />
             </div>
 
-            {/* Champs texte */}
             <div className="space-y-6">
               <div>
                 <label className="mb-2 block font-sans text-[11px] font-light uppercase tracking-[0.2em] text-muted-foreground">
@@ -195,7 +199,7 @@ export default function AdminPage() {
           </form>
         </section>
 
-        {/* Collection existante — grille éditoriale */}
+        {/* Collection existante */}
         <section className="mt-16">
           <div className="flex items-baseline gap-3">
             <span className="font-display text-2xl font-light text-accent">02</span>
@@ -232,7 +236,7 @@ export default function AdminPage() {
                       {item.category}
                     </p>
                     <button
-                      onClick={() => handleDelete(item.id)}
+                      onClick={() => setItemToDelete(item)}
                       className="mt-3 self-start border-b border-white/40 pb-0.5 font-sans text-[10px] font-light uppercase tracking-[0.2em] text-white/90 transition-colors hover:border-white hover:text-white"
                     >
                       Retirer
@@ -244,6 +248,57 @@ export default function AdminPage() {
           )}
         </section>
       </div>
+
+      {/* Modale de confirmation — retrait d'une pièce */}
+      {itemToDelete && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 backdrop-blur-sm"
+          onClick={() => !deleting && setItemToDelete(null)}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="w-full max-w-md border border-border bg-card p-8 shadow-soft sm:p-10"
+          >
+            <div className="mx-auto aspect-[4/5] w-32 overflow-hidden">
+              <img
+                src={itemToDelete.image}
+                alt={itemToDelete.alt}
+                className="h-full w-full object-cover"
+              />
+            </div>
+
+            <div className="mt-6 text-center">
+              <p className="font-sans text-[11px] font-light uppercase tracking-[0.3em] text-accent">
+                Retrait du catalogue
+              </p>
+              <h3 className="mt-3 font-display text-xl font-medium leading-snug">
+                {itemToDelete.title}
+              </h3>
+              <p className="mt-3 font-sans text-sm font-light leading-relaxed text-muted-foreground">
+                Cette pièce sera définitivement retirée de la collection présentée
+                sur le site. Cette action est irréversible.
+              </p>
+            </div>
+
+            <div className="mt-8 flex gap-3">
+              <button
+                onClick={() => setItemToDelete(null)}
+                disabled={deleting}
+                className="flex-1 border border-border py-3 font-sans text-xs font-light uppercase tracking-[0.2em] text-muted-foreground transition-colors hover:bg-secondary hover:text-secondary-foreground disabled:opacity-50"
+              >
+                Annuler
+              </button>
+              <button
+                onClick={confirmDelete}
+                disabled={deleting}
+                className="flex-1 border border-destructive bg-destructive py-3 font-sans text-xs font-light uppercase tracking-[0.2em] text-destructive-foreground transition-opacity hover:opacity-85 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                {deleting ? "Retrait..." : "Confirmer le retrait"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
