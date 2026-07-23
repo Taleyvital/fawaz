@@ -1,9 +1,11 @@
-import { ConsultationForm } from "@/components/consultation/consultation-form";
-import { CuratedInspirationPanel } from "@/components/consultation/curated-inspiration-panel";
-import { LuxuryButton } from "@/components/brand/luxury-button";
-import { defaultInspirationItems } from "@/data/inspiration-items";
+import { ConsultationExperience } from "@/components/consultation/consultation-experience";
+import { getPortfolioItems } from "@/lib/portfolio-store";
 
-export default function ConsultationPage() {
+export const dynamic = "force-dynamic";
+
+export default async function ConsultationPage() {
+  const allItems = await getPortfolioItems();
+
   return (
     <main className="min-h-screen bg-background pt-[110px]">
       <section className="mx-auto max-w-[1440px] px-4 py-12 sm:px-6 sm:py-16 md:px-12 md:py-24">
@@ -15,23 +17,7 @@ export default function ConsultationPage() {
             Créons ensemble votre événement de rêve
           </p>
         </div>
-        <div className="grid gap-12 lg:grid-cols-2">
-          <div>
-            <ConsultationForm />
-            <div className="mt-8 text-center">
-            <LuxuryButton
-              href="https://wa.me/2250712345678?text=Bonjour%20Reda%20Fawaz,%20je%20souhaite%20obtenir%20des%20informations."
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Envoyer la demande
-            </LuxuryButton>
-            </div>
-          </div>
-          {defaultInspirationItems.length > 0 && (
-            <CuratedInspirationPanel items={defaultInspirationItems} />
-          )}
-        </div>
+        <ConsultationExperience allItems={allItems} />
       </section>
     </main>
   );

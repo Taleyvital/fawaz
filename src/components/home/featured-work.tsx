@@ -43,7 +43,7 @@ export function FeaturedWork({ items }: FeaturedWorkProps) {
               className={index === 0 || index === 3 ? "md:row-span-1" : ""}
             >
               <Link
-                href="/portfolio"
+                href={`/portfolio?categorie=${encodeURIComponent(item.category)}`}
                 className="group relative block aspect-[4/5] overflow-hidden bg-card sm:aspect-[3/4] md:aspect-[16/11]"
               >
                 <Image
