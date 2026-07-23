@@ -1,7 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
+import { Heart } from "lucide-react";
+import { useMoodboard } from "@/lib/moodboard";
+import { useSearchParams } from "next/navigation";
 
 import { EditorialHeading } from "@/components/brand/editorial-heading";
 import { Reveal } from "@/components/brand/reveal";
@@ -15,9 +18,19 @@ type PortfolioShowcaseProps = {
   items: PortfolioItem[];
 };
 
-export function PortfolioShowcase({ items }: PortfolioShowcaseProps) {
+function PortfolioShowcaseContent({ items }: PortfolioShowcaseProps) {
+  const searchParams = useSearchParams();
   const [activeCategory, setActiveCategory] =
     useState<(typeof portfolioCategories)[number]>("Tous");
+
+  useEffect(() => {
+    const categorie = searchParams.get("categorie");
+    const match = portfolioCategories.find((c) => c === categorie);
+    if (match) {
+      setActiveCategory(match);
+    }
+  }, [searchParams]);
+  const { isSaved, toggle } = useMoodboard();
 
   const visibleItems = useMemo(() => {
     if (activeCategory === "Tous") return items;
@@ -57,6 +70,18 @@ export function PortfolioShowcase({ items }: PortfolioShowcaseProps) {
                   <span className="absolute left-6 top-6 font-display text-5xl font-light text-[#fdf9f4] mix-blend-difference md:text-6xl">
                     {String(index + 1).padStart(2, "0")}
                   </span>
+                  <button
+                    type="button"
+                    aria-pressed={isSaved(item.id)}
+                    onClick={() => toggle(item.id)}
+                    className="absolute right-6 top-6 flex h-10 w-10 items-center justify-center rounded-full bg-black/40 backdrop-blur-sm"
+                  >
+                    <Heart
+                      className="h-4 w-4"
+                      fill={isSaved(item.id) ? "#d4af37" : "none"}
+                      stroke={isSaved(item.id) ? "#d4af37" : "#fdf9f4"}
+                    />
+                  </button>
                 </div>
               </Reveal>
 
@@ -104,5 +129,12 @@ export function PortfolioShowcase({ items }: PortfolioShowcaseProps) {
         </p>
       ) : null}
     </div>
+  );
+}
+export function PortfolioShowcase(props: PortfolioShowcaseProps) {
+  return (
+    <Suspense fallback={null}>
+      <PortfolioShowcaseContent {...props} />
+    </Suspense>
   );
 }
